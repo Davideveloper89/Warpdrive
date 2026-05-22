@@ -4,24 +4,35 @@ local wormhole_portals = {} -- Armazena os portais colocados
 -- Bloco do portal normal
 c.register_node("warpdrive:wormhole", {
 	description = "Wormhole Portal",
-	tiles = { "wormhole.png" },
+	drawtype = "nodebox",
+	tiles = {"wormhole.png",   -- topo/baixo
+		"wormhole.png",}, -- Se quiser, use aqui uma imagem de animação própria, para frente/trás do nodebox (efeito portal)
+	paramtype = "light",
+	paramtype2 = "facedir",
+	sunlight_propagates = true,
+	walkable = false,       -- jogador atravessa
+	pointable = true,
+	node_box = {type = "fixed", fixed = {-0.5, -0.5, -0.02, 0.5, 0.5, 0.02},}, -- plano fino
+	selection_box = {type = "fixed", fixed = {-0.5, -0.5, -0.02, 0.5, 0.5, 0.02},},
 	light_source = 14,
 	walkable = false,
 	pointable = true,
-	groups = { cracky = 1 },
+	groups = {cracky = 1},
 	on_construct = function(pos)
 		-- Adiciona o portal à lista
 		table.insert(wormhole_portals, pos)
-		if #wormhole_portals == 2 then c.chat_send_all "Os portais foram conectados!" end -- Se houver dois portais, conectá-los
+		if #wormhole_portals == 2 then c.chat_send_all("Os portais foram conectados!") end -- Se houver dois portais, conectá-los
 		-- Efeito de partículas
 		c.add_particlespawner({
-			amount = 100,
+			amount = 50,
 			time = 0,
-			minpos = vector.subtract(pos, 1),
-			maxpos = vector.add(pos, 1),
-			minvel = xyz(-1, 0, -1),
-			maxvel = xyz(1, 1, 1),
-			texture = "wormhole_particle.png",
+			minpos = vector.subtract(pos, 0.5),
+			maxpos = vector.add(pos, 0.5),
+			minvel = xyz(-0.5, -0.5, -0.5),
+			maxvel = xyz(0.5, 0.5, 0.5),
+			minsize = 0.5,
+        		maxsize = 1,
+			texture = "spark_particle.png^[colorize:#000000:255", -- opacidade completa de pintura sobre textura: 255 - hexa pra azul: #028dde
 			glow = 10
 		})
 	end,
