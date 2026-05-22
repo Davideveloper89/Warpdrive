@@ -27,17 +27,11 @@ c.register_node("warpdrive:wormhole", {
 	end,
 	on_destruct = function(pos)
 		for _, p in ipairs(wormhole_portals) do -- Remove o portal da lista ao ser destruído
-			if vector.equals(p, pos) then
-				table.remove(wormhole_portals, _)
-				break
-			end
+			if vector.equals(p, pos) then table.remove(wormhole_portals, _) break end
 		end
 	end,
 	on_rightclick = function(pos, node, player, itemstack, pointed_thing)
-		if #wormhole_portals < 2 then
-			c.chat_send_player(player:get_player_name(), "O portal ainda não está conectado!")
-			return
-		end
+		if #wormhole_portals < 2 then c.chat_send_player(player:get_player_name(), "O portal ainda não está conectado!") return end
 		-- Descobre qual portal é o outro
 		local target_pos = wormhole_portals[1]
 		if vector.equals(pos, wormhole_portals[1]) then target_pos = wormhole_portals[2] end
