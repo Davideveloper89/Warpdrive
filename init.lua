@@ -12,7 +12,7 @@ c.register_node("warpdrive:wormhole", {
 	on_construct = function(pos)
 		-- Adiciona o portal à lista
 		table.insert(wormhole_portals, pos)
-		if #wormhole_portals == 2 then c.chat_send_all("Os portais foram conectados!") end -- Se houver dois portais, conectá-los
+		if #wormhole_portals == 2 then c.chat_send_all "Os portais foram conectados!" end -- Se houver dois portais, conectá-los
 		-- Efeito de partículas
 		c.add_particlespawner({
 			amount = 100,
