@@ -1,7 +1,7 @@
-# Warpdrive
+# 🌀 Warpdrive
 
-# Um mod de buracos de minhoca para teletransporte no Luanti/Minetest
-# Este mod ainda está em estágio Alpha/Beta.
+> A wormhole teleportation mod for Luanti / Minetest.
 
-# A Luanti/Minetest mod that introduces wormholes for fast travel and teleportation.
-# This mod is still in Alpha/Beta.
+Warpdrive introduces functional wormholes to your Luanti/Minetest world, allowing players to fast-travel across long distances.
+
+⚠️ **Disclaimer:** This mod is currently in its **Alpha/Beta** stage of development. Features may change, and you might encounter bugs. Please back up your worlds before updating.
