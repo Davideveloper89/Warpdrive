@@ -5,19 +5,20 @@ local wormhole_portals = {} -- Armazena os portais colocados
 c.register_node("warpdrive:wormhole", {
 	description = "Wormhole Portal",
 	drawtype = "nodebox",
-	tiles = {"wormhole.png",   -- topo/baixo
-		"wormhole.png",}, -- Se quiser, use aqui uma imagem de animação própria, para frente/trás do nodebox (efeito portal)
+	tiles = { "wormhole.png", -- topo/baixo
+		"wormhole.png" },  -- Se quiser, use aqui uma imagem de animação própria, para frente/trás do nodebox (efeito portal)
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
-	walkable = false,       -- jogador atravessa
+	-- jogador atravessa
+	walkable = false,
 	pointable = true,
-	node_box = {type = "fixed", fixed = {-0.5, -0.5, -0.02, 0.5, 0.5, 0.02},}, -- plano fino
-	selection_box = {type = "fixed", fixed = {-0.5, -0.5, -0.02, 0.5, 0.5, 0.02},},
+	node_box = { type = "fixed", fixed = { -0.5, -0.5, -0.02, 0.5, 0.5, 0.02 } }, -- plano fino
+	selection_box = { type = "fixed", fixed = { -0.5, -0.5, -0.02, 0.5, 0.5, 0.02 } },
 	light_source = 14,
 	walkable = false,
 	pointable = true,
-	groups = {cracky = 1},
+	groups = { cracky = 1 },
 	on_construct = function(pos)
 		-- Adiciona o portal à lista
 		table.insert(wormhole_portals, pos)
