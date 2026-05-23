@@ -45,8 +45,7 @@ c.register_node("warpdrive:wormhole", {
 	on_rightclick = function(pos, node, player, itemstack, pointed_thing)
 		if #wormhole_portals < 2 then c.chat_send_player(player:get_player_name(), "O portal ainda não está conectado!") return end
 		-- Descobre qual portal é o outro
-		local target_pos = wormhole_portals[1]
-		target_pos = vector.equals(pos, wormhole_portals[1]) and wormhole_portals[2] or target_pos
+		local target_pos = vector.equals(pos, wormhole_portals[1]) and wormhole_portals[2] or wormhole_portals[1]
 		-- Teletransporta o jogador
 		player:set_pos(target_pos)
 		c.chat_send_player(player:get_player_name(), "Você entrou no buraco de minhoca!")
