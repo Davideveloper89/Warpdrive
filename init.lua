@@ -21,7 +21,7 @@ c.register_node("warpdrive:wormhole", {
 	on_construct = function(pos)
 		-- Adiciona o portal à lista
 		table.insert(wormhole_portals, pos)
-		if #wormhole_portals == 2 then c.chat_send_all("Os portais foram conectados!") end -- Se houver dois portais, conectá-los
+		if #wormhole_portals == 2 then c.chat_send_all "Os portais foram conectados!" end -- Se houver dois portais, conectá-los
 		-- Efeito de partículas
 		c.add_particlespawner({
 			amount = 50,
@@ -31,7 +31,7 @@ c.register_node("warpdrive:wormhole", {
 			minvel = xyz(-0.5, -0.5, -0.5),
 			maxvel = xyz(0.5, 0.5, 0.5),
 			minsize = 0.5,
-        		maxsize = 1,
+        	maxsize = 1,
 			texture = "spark_particle.png^[colorize:#000000:255", -- opacidade completa de pintura sobre textura: 255 - hexa pra azul: #028dde
 			glow = 10
 		})
